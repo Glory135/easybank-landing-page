@@ -1,0 +1,519 @@
+$primary: hsl(233, 26%, 24%);
+$secondary: hsl(136, 65%, 51%);
+$tertiary: hsl(192, 70%, 51%);
+$forth: hsl(233, 8%, 62%);
+$fifth: hsl(220, 16%, 96%);
+$sixth: hsl(0, 0%, 98%);
+$base-font-size: 18px;
+
+@import "./sassLib/index.scss";
+
+$bg: linear-gradient(to right, $secondary, $tertiary);
+
+* {
+  margin: 0;
+  font-size: $base-font-size;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+
+  & header {
+    width: 100%;
+    height: 100vh;
+    background-color: $sixth;
+    @include sm {
+      height: auto;
+    }
+
+    & .top {
+      @include position(center, center);
+      width: 100%;
+      height: 12%;
+      background-color: $white;
+      @include sm {
+        height: 15vh;
+      }
+      & .top-container {
+        @include position(center, space-between);
+        width: 80%;
+        height: 100%;
+        @include sm {
+          width: 95%;
+        }
+
+        & .logo-container {
+          & img {
+            cursor: pointer;
+          }
+        }
+
+        & nav {
+          width: 40%;
+          height: 100%;
+          @include sm {
+            display: none;
+          }
+          & ul {
+            @include position(center, space-between);
+            padding: 0;
+            list-style: none;
+            width: 100%;
+            height: 100%;
+
+            & li {
+              @include position;
+              height: 100%;
+              padding: 0 5px;
+              color: lighten($black, 60);
+              &:hover {
+                transition: 0.5;
+                cursor: pointer;
+                color: $black;
+                border-bottom: 3px solid $secondary;
+              }
+            }
+          }
+        }
+        & button {
+          @include sm {
+            display: none;
+          }
+        }
+        & .bars {
+          display: none;
+          @include sm {
+            display: block;
+          }
+        }
+        & .close {
+          display: none;
+        }
+      }
+    }
+
+    & .media-nav {
+      display: none;
+      @include sm {
+        position: absolute;
+        top: 17vh;
+        left: 5vw;
+        display: flex;
+        width: 90%;
+        height: 50vh;
+        box-shadow: 0px 42px 59px 23px rgba(158, 157, 157, 0.88);
+        background-color: white;
+        padding: 20px 0;
+        & ul {
+          @include position(_, space-between);
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          padding: 0;
+          list-style-type: none;
+          & li {
+            @include position;
+            height: 19%;
+            width: 100%;
+          }
+        }
+        display: none;
+      }
+    }
+
+    & .hero {
+      @include position(_, space-between);
+      width: 100%;
+      height: 88%;
+      @include sm {
+        flex-direction: column-reverse;
+        height: auto;
+        justify-content: center;
+      }
+
+      & .hero-first {
+        @include position(center, right);
+        width: 40%;
+        height: 100%;
+        @include sm {
+          height: 60vh;
+          width: 90%;
+          text-align: center;
+          justify-content: center;
+          margin: 50px 0;
+        }
+
+        & .hero-first-container {
+          @include position(_, space-between);
+          flex-direction: column;
+          width: 85%;
+          height: 60%;
+          @include sm {
+            height: 100%;
+            width: 100%;
+            align-items: center;
+          }
+
+          & h1 {
+            font-size: $font-size-xxl;
+            font-weight: lighter;
+            @include sm {
+              font-size: $font-size-xl;
+            }
+          }
+          & p {
+            color: lighten($black, 50);
+          }
+        }
+      }
+
+      & .hero-second {
+        display: flex;
+        justify-content: right;
+        width: 60%;
+        height: 100%;
+        background-image: url(../images/bg-intro-desktop.svg);
+        background-position: left;
+        @include sm {
+          height: 60vh;
+          width: 100%;
+          background-image: url(../images/bg-intro-mobile.svg);
+        }
+
+        & .img-container {
+          width: 80%;
+          height: 140%;
+          background-image: url(../images/image-mockups.png);
+          background-position-x: left;
+          background-position-y: bottom;
+          background-repeat: no-repeat;
+          @include sm {
+            height: 100%;
+            width: 100%;
+            background-position-x: center;
+            background-position-y: bottom;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+
+  & .why {
+    @include position;
+    width: 100%;
+    height: 100vh;
+    background-color: $fifth;
+    @include sm {
+      height: auto;
+    }
+
+    & .why-container {
+      @include position(_, space-between);
+      flex-direction: column;
+      width: 80%;
+      height: 75%;
+      @include sm {
+        height: auto;
+        width: 90%;
+      }
+
+      & .why-text {
+        @include position(_, space-between);
+        flex-direction: column;
+        width: 60%;
+        height: 25%;
+        @include sm {
+          height: 40vh;
+          width: 100%;
+          text-align: center;
+          margin: 50px 0;
+        }
+
+        & h1 {
+          font-size: $font-size-xl;
+          font-weight: lighter;
+        }
+        & p {
+          color: lighten($black, 50);
+        }
+      }
+
+      & .why-features {
+        @include position(_, space-between);
+        height: 60%;
+        width: 100%;
+        @include sm {
+          flex-direction: column;
+          height: auto;
+        }
+
+        & .feature {
+          @include position(_, space-between);
+          flex-direction: column;
+          width: 23%;
+          height: 100%;
+          @include sm {
+            height: 50vh;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            margin: 30px 0;
+          }
+          & img {
+            width: 30%;
+            @include sm {
+              width: 25%;
+            }
+          }
+          & .feature-text {
+            @include position(_, space-between);
+            flex-direction: column;
+            height: 60%;
+            & h1 {
+              font-size: $font-size-lg;
+              font-weight: lighter;
+              height: 20%;
+            }
+            & p {
+              height: 70%;
+              color: lighten($black, 50);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & .article {
+    @include position;
+    width: 100%;
+    height: 90vh;
+    background-color: $sixth;
+    @include sm {
+      height: auto;
+    }
+
+    & .article-container {
+      @include position(_, space-between);
+      flex-direction: column;
+      width: 80%;
+      height: 80%;
+      @include sm {
+        width: 90%;
+      }
+
+      & .article-header {
+        width: 100%;
+        height: 15%;
+        @include sm {
+          height: 20vh;
+          @include position;
+        }
+
+        & h1 {
+          font-size: $font-size-xl;
+          font-weight: lighter;
+          @include sm {
+            font-size: $font-size-lg;
+          }
+        }
+      }
+      & .article-cards-container {
+        @include position(_, space-between);
+        width: 100%;
+        height: 80%;
+        @include sm {
+          height: auto;
+          flex-direction: column;
+        }
+
+        & .article-card {
+          @include position(center, space-between);
+          padding-bottom: 20px;
+          flex-direction: column;
+          background-color: white;
+          border-radius: $base-border-radius;
+          width: 23%;
+          height: 100%;
+          @include sm {
+            width: 100%;
+            height: 70vh;
+            margin: 30px 0;
+          }
+          & img {
+            width: 100%;
+            height: 50%;
+            border-radius: $base-border-radius $base-border-radius 0 0;
+          }
+          & .article-card-text-container {
+            @include position(_, space-between);
+            flex-direction: column;
+            width: 90%;
+            height: 40%;
+            @include sm {
+              height: 45%;
+            }
+            p {
+              color: lighten(black, 50);
+            }
+            & p.article-author {
+              font-size: 11px;
+            }
+            & h2 {
+              font-weight: lighter;
+              &:hover {
+                color: $secondary;
+                cursor: pointer;
+                transition: 0.5s;
+              }
+            }
+            & p.article-text {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+  & footer {
+    @include position;
+    width: 100%;
+    height: 30vh;
+    background-color: $primary;
+    @include sm {
+      height: auto;
+    }
+    & .footer-container {
+      @include position(center, space-between);
+      width: 80%;
+      height: 60%;
+      @include sm {
+        height: auto;
+        flex-direction: column;
+      }
+
+      & .footer-item {
+        color: darken(white, 30);
+        height: 100%;
+        @include sm {
+          width: 100%;
+          margin: 30px 0;
+        }
+
+        &.footer-first {
+          @include position(center, space-between);
+          flex-direction: column;
+          width: 15%;
+          @include sm {
+            width: 80%;
+            height: 15vh;
+          }
+          & .socials {
+            width: 100%;
+            @include position(center, space-between);
+            & img {
+              cursor: pointer;
+            }
+          }
+        }
+
+        &.footer-forth {
+          @include position(flex-end, _);
+          flex-direction: column;
+          width: 30%;
+          @include sm {
+            width: 100%;
+            align-items: center;
+          }
+          & p {
+            @include sm {
+              font-size: 15px;
+            }
+          }
+          & button {
+            width: 200px;
+            margin-bottom: 20px;
+          }
+        }
+      }
+      & nav {
+        width: 15%;
+        height: auto;
+        & ul {
+          height: 100%;
+          list-style-type: none;
+          padding: 0;
+          & li {
+            width: auto;
+            padding: 5px;
+            &:hover {
+              transition: 0.5s;
+              cursor: pointer;
+              color: $secondary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.invite-btn {
+  @include position;
+  background: $bg;
+  padding: $base-padding $base-padding * 3;
+  border: 0;
+  border-radius: $border-radius-lg;
+  color: white;
+  position: relative;
+  width: auto;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 0;
+    height: 100%;
+    background-color: rgba(253, 250, 250, 0.2);
+  }
+  &:hover::before {
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    bottom: 0;
+    right: 0;
+    display: block;
+    width: 0;
+    height: 100%;
+    background-color: rgba(253, 250, 250, 0.2);
+  }
+  &:hover::after {
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+  }
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  font-size: 11px;
+  color: hsl(228, 45%, 44%);
+}
